@@ -143,4 +143,4 @@ public class Main {
 En el metodo Main he creado una nueva cuenta y dos personas que comparten esta misma cuenta y los he puesto a trabajar. 
 
 Resultado:
-![alt text](https://imgur.com/4DABssn)
+![alt text](https://i.imgur.com/4DABssn.png)
