@@ -2,7 +2,6 @@ package com.crisgon;
 
 public class Persona extends Thread {
 
-    private String nombre;
     private Cuenta cuenta;
 
     public Persona(String nombre, Cuenta cuenta) {
@@ -19,23 +18,32 @@ public class Persona extends Thread {
 
         while (!error) {
 
+            System.out.println("Saldo disponible: " + cuenta.getSaldo());
+
             ingreso = ((int) (Math.random()*500+1));
 
             if (cuenta.setIngreso(ingreso)) {
-                System.out.println("Se han ingresado: " + ingreso);
+                System.out.println(getName() + " ha ingresado: " + ingreso);
             } else {
-                System.out.println("Se ha superado la cantidad máxima para la cuenta.");
+                System.out.println(getName() + " ha intentado ingresar " +
+                        ingreso + " pero ha superado la cantidad máxima para la cuenta.");
                 error = true;
             }
 
             reintegro = ((int) (Math.random()*500+1));
 
             if (cuenta.setReintegro(reintegro)) {
-                System.out.println("Se han reintegrado: " + reintegro);
+                System.out.println(getName() + " ha reintegrado: " + reintegro);
             } else {
-                System.out.println("No hay saldo disponible");
+                System.out.println(getName() + " ha intentado reintegrar " +
+                        reintegro + " pero no hay suficiente saldo disponible");
                 error = true;
             }
+
+            System.out.println("Saldo disponible: " + cuenta.getSaldo());
+
+            try { Thread.sleep(2000); }
+            catch (InterruptedException e) { e.printStackTrace(); }
         }
     }
 
