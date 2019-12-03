@@ -1,11 +1,9 @@
-***Cuenta bancaria
+ #Cuenta bancaria
 
-**Alumno: Cristhian Gónzalez
-**Curso: 2º DAM
-**Modulo: Programación de servicios 
-**y procesos
-**Fecha: 03/11/2019
-
+###Alumno: Cristhian Gónzalez
+###Curso: 2º DAM
+###Modulo: Programación de servicios y procesos
+####Fecha: 03/11/2019
 
 En esta práctica se busca ver como dos hilos Persona comparten un objeto Cuenta entre sí y hacen operaciones en ella de manera sincronizada. El programa estará disponible para su descarga también en mi GitHub en el repositorio Bank-Account. 
 
