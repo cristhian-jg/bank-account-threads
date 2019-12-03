@@ -2,8 +2,8 @@ package com.crisgon;
 
 public class Cuenta {
 
-    private double saldo; // Saldo
-    private double cantidadPermitida; // Cantidad permitida
+    private double saldo;
+    private double cantidadPermitida;
 
     public Cuenta(double saldo, double cantidadPermitida) {
         this.cantidadPermitida = cantidadPermitida;
