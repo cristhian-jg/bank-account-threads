@@ -24,7 +24,7 @@ public class Cuenta {
      * @return boolean que controla si se ha hecho el ingreso o no.
      */
     synchronized boolean setIngreso(double cantidad) {
-        if (saldo < cantidadPermitida) {
+        if ((saldo + cantidad) < cantidadPermitida) {
             saldo = saldo + cantidad;
             return true;
         } else return false;

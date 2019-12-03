@@ -11,7 +11,7 @@ public class Persona extends Thread {
 
     public void run() {
 
-        boolean error = false; // Controla si ha habido un error en el proceso.
+        boolean error = false;
 
         int ingreso;
         int reintegro;
@@ -26,9 +26,13 @@ public class Persona extends Thread {
                 System.out.println(getName() + " ha ingresado: " + ingreso);
             } else {
                 System.out.println(getName() + " ha intentado ingresar " +
-                        ingreso + " pero ha superado la cantidad máxima para la cuenta.");
+                        ingreso + " pero ha superado la cantidad máxima para la cuenta. (" +
+                        ingreso + " + " + cuenta.getSaldo() + " = " + (ingreso+cuenta.getSaldo()) + ")");
                 error = true;
             }
+
+            try { Thread.sleep(2000); }
+            catch (InterruptedException e) { e.printStackTrace(); }
 
             reintegro = ((int) (Math.random()*500+1));
 
@@ -36,15 +40,12 @@ public class Persona extends Thread {
                 System.out.println(getName() + " ha reintegrado: " + reintegro);
             } else {
                 System.out.println(getName() + " ha intentado reintegrar " +
-                        reintegro + " pero no hay suficiente saldo disponible");
+                        reintegro + " pero el saldo es de " + cuenta.getSaldo());
                 error = true;
             }
-
-            System.out.println("Saldo disponible: " + cuenta.getSaldo());
-
-            try { Thread.sleep(2000); }
-            catch (InterruptedException e) { e.printStackTrace(); }
         }
+
+        System.out.println("Como a " + getName() + " le ha salido un error en la cuenta se ha ido.");
     }
 
 }
