@@ -123,7 +123,7 @@ Se ha añadido un Thread.sleep entre las llamadas a los metodos para provocar un
 Cuando uno de los metodos (reintegro o ingreso) devuelve un error termina el bucle y la Persona deja de hacer ingresos o reintegros. 
 
 Código Main:
-```
+```java
 package com.crisgon;
 
 public class Main {
