@@ -2,41 +2,42 @@ package com.crisgon;
 
 public class Cuenta {
 
-    private double balance; // Saldo
-    private double amountAllowed; // Cantidad permitida
+    private double saldo; // Saldo
+    private double cantidadPermitida; // Cantidad permitida
 
-    public Cuenta(double balance, double amountAllowed) {
-        this.amountAllowed = amountAllowed;
-        this.balance = balance;
+    public Cuenta(double saldo, double cantidadPermitida) {
+        this.cantidadPermitida = cantidadPermitida;
+        this.saldo = saldo;
     }
 
     /**
-     * Función que devuelve el saldo actual.
+     * Función de devuelve el saldo actual disponible.
+     * @return saldo disponible.
      */
-    public double getCurrentBalance() {
-        return balance;
+    public double getSaldo() {
+        return saldo;
     }
 
     /**
      * Función que permite hacer un nuevo ingreso.
-     * @param amount (Cantidad a ingresar)
+     * @param cantidad (Cantidad a ingresar)
      * @return boolean que controla si se ha hecho el ingreso o no.
      */
-    synchronized boolean setIngress(double amount) {
-        if (balance < amountAllowed) {
-            balance = balance + amount;
+    synchronized boolean setIngreso(double cantidad) {
+        if (saldo < cantidadPermitida) {
+            saldo = saldo + cantidad;
             return true;
         } else return false;
     }
 
     /**
      *  Función que permite hacer un reintegro.
-     * @param amount (Cantidad a reintegrar)
+     * @param cantidad (Cantidad a reintegrar)
      * @return boolean que controla si se ha hecho el reintegro o no.
      */
-    synchronized boolean setRefund(double amount) {
-        if (balance > amount ) {
-            balance = balance - amount;
+    synchronized boolean setReintegro(double cantidad) {
+        if (saldo > cantidad ) {
+            saldo = saldo - cantidad;
             return true;
         } else return false;
     }
