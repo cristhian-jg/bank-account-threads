@@ -143,4 +143,4 @@ public class Main {
 En el metodo Main he creado una nueva cuenta y dos personas que comparten esta misma cuenta y los he puesto a trabajar. 
 
 Resultado:
-
+![Resultado](https://imgur.com/a/4scyVOi)
