@@ -10,7 +10,7 @@ Fecha: 03/11/2019
 En esta práctica se busca ver como dos hilos Persona comparten un objeto Cuenta entre sí y hacen operaciones en ella de manera sincronizada. El programa estará disponible para su descarga también en mi GitHub en el repositorio Bank-Account. 
 
 Código Cuenta.
-
+```javascript
 package com.crisgon;
 
 public class Cuenta {
@@ -55,7 +55,7 @@ public class Cuenta {
         } else return false;
     }
 }
-
+```
 En esta primera clase que he creado se busca crear varios metodos que permitan a una Persona hacer tanto un ingreso como un reintegro. 
 
 Cuenta con el atributos saldo, que indica el saldo de la cuenta, y el atributo cantidadPermitida, que indica el saldo máximo que puede haber ingresado en la cuenta. He añadido un metodo Getter para obtener el saldo actual de la cuenta, que me ayudará despues a comprobar el saldo almacenado en la cuenta. 
@@ -63,7 +63,7 @@ Cuenta con el atributos saldo, que indica el saldo de la cuenta, y el atributo c
 Tenemos los metodos para ingresar y retirar dinero, los he aplicado synchronized para que se evite que uno de estos metodos pueda ser ejecutado al mismo tiempo que el otro y así evitar errores de sincronización. Además hago que devuelvan valores booleanos, porque creo que es mejor que la salida de texto se trate fuera de esta clase.
 
 Clase Persona:
-
+```javascript
 package com.crisgon;
 
 public class Persona extends Thread {
@@ -113,7 +113,7 @@ public class Persona extends Thread {
         System.out.println("Como a " + getName() + " le ha salido un error en la cuenta se ha ido.");
     }
 }
-
+```
 Esta clase Persona es la que funcionará cómo un hilo y la que operará con la clase Cuenta, esta clase unicamente con una Cuenta, tambien se podría decir que con un nombre heredado de la clase Thread y su correpondiente metodo run().
 
 Dentro de este metodo run he implementado un bucle que seguirá ejecutandose hasta que ocurra un error el cual controlo mediante el boolean error, puedo hacer esto gracias a que los metodos de ingreso y reintegro devuelven valores booleanos, con lo que puedo saber más facilmente cuando se ha hecho un ingreso o no y dependiento de este resultado mostrar un texto u otro. 
@@ -123,7 +123,7 @@ Se ha añadido un Thread.sleep entre las llamadas a los metodos para provocar un
 Cuando uno de los metodos (reintegro o ingreso) devuelve un error termina el bucle y la Persona deja de hacer ingresos o reintegros. 
 
 Código Main:
-```java
+```javascript
 package com.crisgon;
 
 public class Main {
