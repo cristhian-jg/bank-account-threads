@@ -44,8 +44,6 @@ public class Persona extends Thread {
                 error = true;
             }
         }
-
         System.out.println("Como a " + getName() + " le ha salido un error en la cuenta se ha ido.");
     }
-
 }
